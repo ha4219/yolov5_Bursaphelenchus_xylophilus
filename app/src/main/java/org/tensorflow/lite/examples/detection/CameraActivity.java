@@ -92,7 +92,7 @@ public abstract class CameraActivity extends AppCompatActivity
   private LinearLayout gestureLayout;
   private BottomSheetBehavior<LinearLayout> sheetBehavior;
 
-  protected TextView frameValueTextView, cropValueTextView, inferenceTimeTextView;
+  protected TextView frameValueTextView, cropValueTextView, inferenceTimeTextView, fpsView;
   protected ImageView bottomSheetArrowImageView;
   private ImageView plusImageView, minusImageView;
   protected ListView deviceView;
@@ -217,6 +217,7 @@ public abstract class CameraActivity extends AppCompatActivity
     frameValueTextView = findViewById(R.id.frame_info);
     cropValueTextView = findViewById(R.id.crop_info);
     inferenceTimeTextView = findViewById(R.id.inference_info);
+    fpsView = findViewById(R.id.fps);
 
     plusImageView.setOnClickListener(this);
     minusImageView.setOnClickListener(this);
@@ -607,6 +608,10 @@ public abstract class CameraActivity extends AppCompatActivity
 
   protected void showInference(String inferenceTime) {
     inferenceTimeTextView.setText(inferenceTime);
+  }
+
+  protected void showFps(String fps) {
+    fpsView.setText(fps);
   }
 
   protected abstract void updateActiveModel();

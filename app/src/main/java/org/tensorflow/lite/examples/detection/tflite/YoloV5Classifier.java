@@ -74,7 +74,6 @@ public class YoloV5Classifier implements Classifier {
             final int[] anchors*/)
             throws IOException {
         final YoloV5Classifier d = new YoloV5Classifier();
-
         String actualFilename = labelFilename.split("file:///android_asset/")[1];
         InputStream labelsInput = assetManager.open(actualFilename);
         BufferedReader br = new BufferedReader(new InputStreamReader(labelsInput));
@@ -124,6 +123,7 @@ public class YoloV5Classifier implements Classifier {
         }
         d.INPUT_SIZE = inputSize;
         d.imgData = ByteBuffer.allocateDirect(1 * d.INPUT_SIZE * d.INPUT_SIZE * 3 * numBytesPerChannel);
+//        d.imgData = ByteBuffer.allocateDirect(4 * d.INPUT_SIZE * d.INPUT_SIZE * 3 * numBytesPerChannel);
         d.imgData.order(ByteOrder.nativeOrder());
         d.intValues = new int[d.INPUT_SIZE * d.INPUT_SIZE];
 
